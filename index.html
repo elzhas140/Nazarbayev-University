@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Назарбаев Университет</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #4b0082, #1e90ff);
+      color: #fff;
+    }
+    header {
+      padding: 60px 20px;
+      text-align: center;
+    }
+    header h1 {
+      font-size: 3em;
+      color: #ffe066;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
+    }
+    header p {
+      font-size: 1.2em;
+      margin-top: 10px;
+    }
+    .btn {
+      margin-top: 25px;
+      padding: 14px 30px;
+      background: #ffa502;
+      color: #fff;
+      font-weight: bold;
+      border: none;
+      border-radius: 10px;
+      font-size: 1em;
+      cursor: pointer;
+      transition: 0.3s;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+    .btn:hover {
+      background: #ffc048;
+      transform: scale(1.05);
+    }
+
+    /* Slider */
+    .slider {
+      position: relative;
+      height: 300px;
+      overflow: hidden;
+      margin-top: 30px;
+    }
+    .slides {
+      display: flex;
+      width: 300%;
+      animation: slide 12s infinite;
+    }
+    .slide {
+      width: 100vw;
+      flex-shrink: 0;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+    .slide h2 {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      background: rgba(0,0,0,0.5);
+      padding: 12px 18px;
+      border-radius: 10px;
+      font-size: 1.5em;
+      text-shadow: 1px 1px 3px #000;
+    }
+    @keyframes slide {
+      0%   { transform: translateX(0); }
+      33%  { transform: translateX(-100vw); }
+      66%  { transform: translateX(-200vw); }
+      100% { transform: translateX(0); }
+    }
+    /* Tabs */
+    .tabs {
+      display: flex;
+      justify-content: center;
+      margin: 40px 0 0;
+      background-color: rgba(0,0,0,0.2);
+      flex-wrap: wrap;
+    }
+    .tab {
+      padding: 15px 30px;
+      cursor: pointer;
+      border-bottom: 4px solid transparent;
+      transition: 0.3s;
+      color: #f0f0f0;
+    }
+    .tab:hover,
+    .tab.active {
+      border-bottom: 4px solid #ffe066;
+      color: #ffe066;
+    }
+    .tab-content {
+      display: none;
+      padding: 30px 20px;
+      text-align: center;
+      background-color: rgba(0, 0, 0, 0.1);
+    }
+    .tab-content.active {
+      display: block;
+    }
+    .tab-content h2 {
+      font-size: 2em;
+      margin-bottom: 15px;
+      color: #ffe066;
+    }
+    .tab-content ul {
+      list-style: inside disc;
+      margin-top: 10px;
+      font-size: 1.1em;
+      line-height: 1.6;
+      max-width: 700px;
+      margin: 0 auto;
+      color: #fffacd;
+    }
+
+    /* Form */
+    .form-section {
+      padding: 40px 20px;
+      text-align: center;
+    }
+    .form-section h2 {
+      color: #ffe066;
+      margin-bottom: 20px;
+      font-size: 2em;
+    }
+    form {
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 12px 15px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 8px;
+      font-size: 1em;
+    }
+    input[type="submit"] {
+      background: #ffa502;
+      color: white;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    input[type="submit"]:hover {
+      background: #ffc048;
+    }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Назарбаев Университет</h1>
+  <p>Добро пожаловать в университет мирового уровня!</p>
+  <button class="btn" onclick="document.getElementById('form').scrollIntoView()">Оставить заявку</button>
+</header>
+
+<!-- Слайдер -->
+<div class="slider">
+  <div class="slides">
+    <div class="slide" style="background-image: url('https://source.unsplash.com/1600x600/?university');">
+      <h2>Современный кампус</h2>
+    </div>
+    <div class="slide" style="background-image: url('https://source.unsplash.com/1600x600/?students');">
+      <h2>Жизнь студентов NU</h2>
+    </div>
+    <div class="slide" style="background-image: url('https://source.unsplash.com/1600x600/?science');">
+      <h2>Наука и технологии будущего</h2>
+    </div>
+  </div>
+</div>
+
+<!-- Вкладки -->
+<div class="tabs">
+  <div class="tab active" data-tab="advantages">Преимущества</div>
+  <div class="tab" data-tab="opportunities">Возможности</div>
+  <div class="tab" data-tab="contacts">Контакты</div>
+</div>
+
+<div class="tab-content active" id="advantages">
+  <h2>Почему NU?</h2>
+  <ul>
+    <li>Обучение на английском языке</li>
+    <li>Гранты и стипендии</li>
+    <li>Международные преподаватели</li>
+    <li>Современный кампус и лаборатории</li>
+  </ul>
+</div>
+
+<div class="tab-content" id="opportunities">
+  <h2>Что ждёт студентов?</h2>
+  <ul>
+    <li>Обмены с университетами по всему миру</li>
+    <li>Развитие стартапов и IT-проектов</li>
+    <li>Карьерная поддержка</li>
+    <li>Активная студенческая жизнь</li>
+  </ul>
+</div>
+
+<div class="tab-content" id="contacts">
+  <h2>Контакты</h2>
+  <ul>
+    <li>Email: <a href="mailto:ablay@nu.edu.kz" style="color:#ffe066;">ablay@nu.edu.kz</a></li>
+    <li>Телефон: +7 777 681 6297</li>
+    <li>Адрес: г. Астана, пр. Назарбаева, 53</li>
+  </ul>
+</div>
+
+<!-- Форма -->
+<div class="form-section" id="form">
+  <h2>Оставьте заявку</h2>
+  <form onsubmit="alert('Спасибо! Мы свяжемся с вами.'); return false;">
+    <input type="text" placeholder="Ваше имя" required>
+    <input type="email" placeholder="Email" required>
+    <input type="tel" placeholder="Телефон" required>
+    <textarea placeholder="Ваш вопрос..." rows="4"></textarea>
+    <input type="submit" value="Отправить">
+  </form>
+</div>
+<!-- QR-Код -->
+<div style="text-align:center; margin: 50px 0;">
+    <h2 style="color:#ffe066;">Переход на официальный сайт</h2>
+    <canvas id="qrcode" style="margin-top:20px;"></canvas>
+  </div>
+  
+  <footer>
+    &copy; 2025 Назарбаев Университет | Все права защищены
+  </footer>
+  
+  <!-- СКРИПТЫ -->
+  <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+  <script>
+    // QR-КОД
+    QRCode.toCanvas(document.getElementById('qrcode'), 'https://nu.edu.kz', function (error) {
+      if (error) console.error(error);
+    });
+  
+    // Табы
+    const tabs = document.querySelectorAll(".tab");
+    const contents = document.querySelectorAll(".tab-content");
+  
+    tabs.forEach(tab => {
+      tab.addEventListener("click", () => {
+        tabs.forEach(t => t.classList.remove("active"));
+        contents.forEach(c => c.classList.remove("active"));
+  
+        tab.classList.add("active");
+        document.getElementById(tab.dataset.tab).classList.add("active");
+      });
+    });
+  
+    // Ручной слайдер (по желанию)
+    // Пока используется авто-анимация в CSS
+  </script>
+  
+  </body>
+  </html>
+  
